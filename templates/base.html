@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+    <nav class="site-nav" aria-label="Main">
+  <a class="site-nav__brand" href="index.html">Reunite</a>
+  <ul class="site-nav__links">
+    <li>
+      <!-- Add aria-current="page" to whichever link matches the current page. -->
+      <a class="nav-btn nav-btn--find" href="search.html" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/>
+        </svg>
+        <span>
+          <span class="nav-btn__label">Find someone</span>
+          <span class="nav-btn__hint">Search for a missing person</span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="nav-btn nav-btn--register" href="register.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
+          <circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3.1-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 8v6M16 11h6"/>
+        </svg>
+        <span>
+          <span class="nav-btn__label">Register someone</span>
+          <span class="nav-btn__hint">Record who is safe and where</span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

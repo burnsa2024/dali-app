@@ -1,0 +1,93 @@
+:root {
+    --page: #ffffff;
+    --text: #1a2230;
+    --muted: #4a5568;
+    --rule: #d5dbe3;
+    --find: #1d4e89;
+    --find-tint: #e6eef8;
+    --register: #1e6b48;
+    --register-tint: #e3f2ea;
+    --on-solid: #ffffff;
+    --focus: #b35c00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --page: #141a22;
+      --text: #eef2f7;
+      --muted: #a7b2c1;
+      --rule: #2c3644;
+      --find: #2f6db3;
+      --find-tint: #182a40;
+      --register: #237a53;
+      --register-tint: #15301f;
+      --on-solid: #ffffff;
+      --focus: #ffb35c;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 2px solid var(--rule);
+  }
+  .site-nav__brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .site-nav__links {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Each link is a large, color-coded button so staff can learn "blue = find, green = register". */
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3.5rem;
+    padding: 0.6rem 1.1rem;
+    border: 2px solid currentColor;
+    border-radius: 0.6rem;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+  .nav-btn svg { flex: none; width: 1.75rem; height: 1.75rem; }
+  .nav-btn__label { display: block; font-size: 1.15rem; font-weight: 700; }
+  .nav-btn__hint { display: block; font-size: 0.875rem; color: var(--muted); }
+
+  .nav-btn--find { color: var(--find); background: var(--find-tint); }
+  .nav-btn--register { color: var(--register); background: var(--register-tint); }
+
+  /* The current page gets a solid fill, so "where am I" is obvious at a glance. */
+  .nav-btn--find[aria-current="page"] { background: var(--find); border-color: var(--find); color: var(--on-solid); }
+  .nav-btn--register[aria-current="page"] { background: var(--register); border-color: var(--register); color: var(--on-solid); }
+  .nav-btn[aria-current="page"] .nav-btn__hint { color: var(--on-solid); }
+
+  .nav-btn:hover .nav-btn__label { text-decoration: underline; text-underline-offset: 3px; }
+  .nav-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+  /* Phones and narrow tablets: brand on top, two equal buttons below, hints hidden to save space. */
+  @media (max-width: 640px) {
+    .site-nav { flex-direction: column; align-items: stretch; }
+    .site-nav__links { width: 100%; }
+    .site-nav__links li { flex: 1; }
+    .nav-btn { justify-content: center; }
+    .nav-btn__hint { display: none; }
+  }
