@@ -19,5 +19,7 @@ from django.urls import path
 from .views import static_view
 
 urlpatterns = [
-    path('', static_view)
+    path('', static_view, {'template': 'home.html'}, name='home_page'),
+    path('search/', static_view, {'template': 'search.html'}, name='search_page'),
+    path('register/', static_view, {'template': 'register.html'}, name='register_page'),
 ]
