@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import static_view, register
+from .views import static_view, register, search_submitted
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -26,5 +26,7 @@ urlpatterns = [
     path("tools/", static_view, {'template': 'tools.html'}, name='tools_page'),
     path("accounts/login/", auth_views.LoginView.as_view(), name="login"),
     path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("search/submitted/", search_submitted, name="search_submitted_page"),
+    path("register/", register, name="register_page"),
 
 ]

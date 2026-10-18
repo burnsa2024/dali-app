@@ -1,4 +1,46 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Find someone | {% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'forms.css' %}">
+  <link rel="stylesheet" href="{% static 'search.css' %}">
+{% endblock %}
+
 {% block content %}
-     <h1>this is the search page</h1>
+<div class="form-page">
+  <header class="form-page__header">
+    <h1>Find someone</h1>
+    <p>Tell us who you're looking for. We'll check everyone registered at every shelter, including people who arrive later.</p>
+  </header>
+
+  <div class="info-box">
+    <p><strong>How we keep everyone safe:</strong> we never show where someone is. If we find a possible match, a volunteer will privately ask that person whether they want to be put in touch with you.</p>
+  </div>
+
+  {% if form.errors %}
+    <div class="form-alert" role="alert" tabindex="-1" x-data x-init="$el.focus()">
+      <p>Your search wasn't saved yet. Fix the fields marked below, then try again.</p>
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+
+  <form method="post" autocomplete="off">
+    {% csrf_token %}
+    {% for title, intro, fields in form.sections %}
+      <fieldset class="form-section">
+        <legend>{{ title }}</legend>
+        {% if intro %}<p class="form-section__intro">{{ intro }}</p>{% endif %}
+        {% for field in fields %}
+          {% include "field.html" %}
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+
+    <div class="form-actions">
+      <button type="submit" class="btn-find">Start search</button>
+    </div>
+  </form>
+</div>
 {% endblock %}

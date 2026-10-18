@@ -1,0 +1,63 @@
+.info-box {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border-left: 6px solid var(--find);
+  border-radius: 0.4rem;
+  background: var(--find-tint);
+}
+.info-box p { margin: 0; }
+
+/* Blue primary button: "find" actions use the same color as the nav button */
+.btn-find {
+  min-height: 3.5rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--find);
+  border-radius: 0.6rem;
+  background: var(--find);
+  color: var(--on-solid);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-find:hover { text-decoration: underline; text-underline-offset: 3px; }
+.btn-find:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* Search code: large and spaced out so it's easy to read aloud and copy by hand */
+.code-box {
+  margin: 0 0 2rem;
+  padding: 1.25rem;
+  border: 3px solid var(--find);
+  border-radius: 0.75rem;
+  text-align: center;
+}
+.code-box p { margin: 0; }
+.code-box__label { color: var(--muted); font-weight: 700; }
+.code-box__code {
+  margin: 0.25rem 0 0.5rem !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.code-box__hint { font-size: 0.95rem; }
+
+h2 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+.next-steps { margin: 0 0 1.5rem; padding-left: 1.5rem; }
+.next-steps li { margin-bottom: 0.5rem; }
+.reassurance { color: var(--muted); }
+
+.form-actions--split { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.form-actions--split a { color: var(--find); font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+  .form-actions--split a { color: #a9c8f0; }
+}
+
+@media (max-width: 640px) {
+  .btn-find { width: 100%; }
+}
+
+@media print {
+  .site-nav, .no-print { display: none; }
+  .code-box { border-color: #000; }
+}

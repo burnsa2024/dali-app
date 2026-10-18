@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Search saved | {% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+  <link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-page">
+  <header class="form-page__header">
+    <h1>Your search is saved</h1>
+    <p>You're looking for <strong>{{ search.sought_name }}</strong>.</p>
+  </header>
+
+  <section class="code-box" aria-labelledby="code-label">
+    <p id="code-label" class="code-box__label">Your search code</p>
+    <p class="code-box__code">{{ search.reference_code }}</p>
+    <p class="code-box__hint">Write this down or take a photo of it. You'll need it to check for news.</p>
+  </section>
+
+  <h2>What happens next</h2>
+  <ol class="next-steps">
+    <li>We compare your search with everyone registered at every shelter, now and as new people arrive.</li>
+    <li>If someone might be a match, a volunteer will privately ask them whether they want to be put in touch with you.</li>
+    <li>If they say yes, we'll pass on their message
+      {% if search.searcher_shelter %}through the volunteers at {{ search.searcher_shelter.name }}{% elif search.searcher_phone or search.searcher_email %}using the contact details you gave{% else %}when you check back with your code{% endif %}.
+    </li>
+  </ol>
+
+  {% if not search.has_contact_method %}
+    <p class="form-notice">You didn't give us a way to reach you, so checking back with your code is the only way to get news. Any shelter volunteer can help you do that.</p>
+  {% endif %}
+
+  <p class="reassurance">No news doesn't mean bad news. Many people haven't been registered yet, and your search stays active as new people arrive.</p>
+
+  <div class="form-actions form-actions--split no-print">
+    <button type="button" class="btn-find" onclick="window.print()">Print this page</button>
+    <a href="{% url 'search_page' %}">Search for someone else</a>
+  </div>
+</div>
+{% endblock %}
