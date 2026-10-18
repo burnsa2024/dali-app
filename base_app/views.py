@@ -36,7 +36,7 @@ def register(request):
     else:
         form = PersonRecordForm()
 
-    return render(request, "registry/register.html", {"form": form, "shelter": profile.shelter})
+    return render(request, "register.html", {"form": form, "shelter": profile.shelter})
 
 
 def search(request):
