@@ -1,42 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}Reunite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'site.css' %}">
+  {% block extra_css %}{% endblock %}
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 <body>
-    <nav class="site-nav" aria-label="Main">
-  <a class="site-nav__brand" href="{% url 'home_page' %}">Reunite</a>
-  <ul class="site-nav__links">
-    <li>
-      <!-- Add aria-current="page" to whichever link matches the current page. -->
-      <a class="nav-btn nav-btn--find" href="{% url 'search_page' %}" {% if request.resolver_match.url_name == 'search_page' %}aria-current="page"{% endif %}>
-
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
-          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/>
-        </svg>
-        <span>
-          <span class="nav-btn__label">Find someone</span>
-          <span class="nav-btn__hint">Search for a missing person</span>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a class="nav-btn nav-btn--register" href="{% url 'register_page' %}" {% if request.resolver_match.url_name == 'register_page' %}aria-current="page"{% endif %}>
-
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true">
-          <circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3.1-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 8v6M16 11h6"/>
-        </svg>
-        <span>
-          <span class="nav-btn__label">Register someone</span>
-          <span class="nav-btn__hint">Record who is safe and where</span>
-        </span>
-      </a>
-    </li>
-  </ul>
-</nav>
+  {% include "nav.html" %}
+  <main class="site-main">
+    {% if messages %}
+      <ul class="messages" role="status">
+        {% for message in messages %}
+          <li class="message message--{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     {% block content %}{% endblock %}
+  </main>
 </body>
 </html>

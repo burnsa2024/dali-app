@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Volunteer sign in | {% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'forms.css' %}">{% endblock %}
+
+{% block content %}
+<div class="form-page">
+  <header class="form-page__header">
+    <h1>Volunteer sign in</h1>
+    <p>Only shelter staff and volunteers need to sign in. If you're looking for a family member, use <a href="{% url 'search_page' %}">Find someone</a> instead.</p>
+  </header>
+
+  {% if form.errors %}
+    <div class="form-alert" role="alert" tabindex="-1" x-data x-init="$el.focus()">
+      <p>That username and password didn't match. Check both and try again. If you're still stuck, ask your shelter coordinator to reset your password.</p>
+    </div>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      {% include "field.html" %}
+    {% endfor %}
+    {# Sends the volunteer back to the page they were trying to reach. #}
+    <input type="hidden" name="next" value="{{ next }}">
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Sign in</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
