@@ -23,6 +23,8 @@ urlpatterns = [
     path('', static_view, {'template': 'home.html'}, name='home_page'),
     path('search/', static_view, {'template': 'search.html'}, name='search_page'),
     path("register/", register, name="register_page"),
+    path("tools/", static_view, {'template': 'tools.html'}, name='tools_page'),
     path("accounts/login/", auth_views.LoginView.as_view(), name="login"),
     path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
+
 ]

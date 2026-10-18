@@ -36,8 +36,8 @@ class PersonRecord(models.Model):
         HIDDEN = "hidden", "Don't show them in any search"
 
     class Gender(models.TextChoices):
-        WOMAN = "woman", "Woman"
-        MAN = "man", "Man"
+        MALE = "male", "Male"
+        FEMALE = "female", "Female"
         OTHER = "other", "Another gender"
         UNSAID = "unsaid", "Prefer not to say"
 

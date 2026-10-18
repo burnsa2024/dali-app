@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Helpful Tools for Civilians</h1>
+    <h2>Register yourself</h2>
+    <p>Not at a shelter? Fill out <a href="#">this form</a> to register yourself, allowing selected individuals to be able to search for you. (not yet implemented)</p>
+    <h2>View a Shelter Map</h2>
+    <p>Click <a href="#">here</a> to view a map of all shelters. (not yet implemented)</p>
+    <h1>Helpful Tools for Volunteers</h1>
+    <h2>Registration Form Template</h2>
+    <p>This downloadable registration form can be downloaded and edited or printed to register shelter residents, even when there is no Internet. This file can be uploaded to the <a href="{% url 'register_page' %}">Registration Page</a> to mass register participants.</p>
+    <a href="{% static 'RegistrationFormTEMPLATE.xlsx' %}">Download Template for Registration. </a>
+    <h2>Check out a Resident</h2>
+    <p>If someone is leaving this shelter, <a href="#">check them out</a> to record their planned destination. (not yet implemented)</p>
+    <h2>Edit/delete registration information</h2>
+    <p>When logged in, click <a href=""></a></p>
+{% endblock %}
