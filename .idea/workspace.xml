@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dd2eaed-d1a5-4a71-be2a-f357c3b2e039" name="Changes" comment="setup for deployment">
+    <list default="true" id="3dd2eaed-d1a5-4a71-be2a-f357c3b2e039" name="Changes" comment="added logging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dali_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dali_app/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1791735313806</updated>
       <workItem from="1791735314826" duration="6220000" />
-      <workItem from="1791914978357" duration="25830000" />
+      <workItem from="1791914978357" duration="26197000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -199,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792367998096</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added logging">
+      <option name="closed" value="true" />
+      <created>1792369940011</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1792369940011</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +223,7 @@
     <MESSAGE value="initial search implementation" />
     <MESSAGE value="Migrated models" />
     <MESSAGE value="setup for deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup for deployment" />
+    <MESSAGE value="added logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logging" />
   </component>
 </project>
