@@ -9,10 +9,19 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+from logging import StreamHandler
 from pathlib import Path
 import os
 import dj_database_url
+from setuptools import logging
+
+# debugging for deployment
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {"django": {"handlers": ["console"], "level": "INFO"}},
+}
 
 # Render sets this variable automatically, so it tells us whether we're running live.
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
