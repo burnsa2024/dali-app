@@ -1,3 +1,24 @@
+Live deployed link: https://dali-application-burns.onrender.com
+
+HOW TO USE:
+     - A username and password is needed to access the registration page of the site. I have created
+       a sample volunteer profile for the purpose of reviewing this site:
+        Username: admin-test
+        Password: DALI_APPLICATION
+        
+Overview: This site implements a system to easily register people who have been displaced from their homes,
+          while also allowing anyone to search for people in the database. Registration is mainly through 
+          shelters (volunteers have their own login associated with a certain shelter for simple record-tracking),
+          although individuals can register themselves through a different form if they have access to the Internet 
+          and are not at a shelter. All searches are manually reviewed - the database is initially searched for matches
+          in name, but all searches are are reviewed to ensure that false matches are minimized. There may be many people
+          with the same name, from similar areas, and who are even searching for similarly named people, so the best way to
+          ensure that we don't have false search results is to have volunteers speak with the people who appeared in the search
+          result to see if they are the correct person, and to see if they actually want to be found. Although this approach
+          puts far more labor on the volunteers, it is essential for the safety and privacy of people.
+
+Example: 
+
 HELPFUL TOOLS PAGE:
     This page is split into a volunteer-focused section and a normal person-focused section. 
     Normal people
