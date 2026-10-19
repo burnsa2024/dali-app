@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'tools.css' %}">{% endblock %}
+
 {% block content %}
+<div class="tools">
     <h1>Helpful Tools for Civilians</h1>
     <h2>Register yourself</h2>
     <p>Not at a shelter? Fill out <a href="#">this form</a> to register yourself, allowing selected individuals to be able to search for you. (not yet implemented)</p>
@@ -13,5 +16,6 @@
     <h2>Check out a Resident</h2>
     <p>If someone is leaving this shelter, <a href="#">check them out</a> to record their planned destination. (not yet implemented)</p>
     <h2>Edit/delete registration information</h2>
-    <p>When logged in, click <a href=""></a></p>
+    <p>Click <a href="https://dali-application-burns.onrender.com/admin/">here</a> to update registration information.</p>
+</div>
 {% endblock %}
