@@ -1,6 +1,34 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'home.css' %}">{% endblock %}
 {% block content %}
-    <h1>This is the home page.</h1>
-    <a href="{% url 'tools_page' %}">View Other Helpful Tools</a>
+<div class="home">
+    <h1>Access the most up-to-date information about Hurricane X (not implemented, updated manually)</h1>
+    <p>Search for someone <a href="{% url 'search_page' %}" >here</a>, or register someone <a href="{% url 'register_page' %}" >here</a></p>
+    <a href="{% url 'tools_page' %}">Reunite Tools for Volunteers and Searchers</a>
+    <h2>Evacuation Alerts</h2>
+        <ul>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+        </ul>
+    <h2>Weather Forecasts</h2>
+        <ul>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+        </ul>
+    <h2>Shelter Locations</h2>
+        <ul>
+            <li>Shelter A address/link/info</li>
+            <li>Shelter B address/link/info</li>
+            <li>Shelter C address/link/info</li>
+        </ul>
+    <h2>News Stories</h2>
+        <ul>
+            <li>Source 1</li>
+            <li>Source 2</li>
+            <li>Source 3</li>
+        </ul>
+</div>
 {% endblock %}
